@@ -51,3 +51,6 @@ There will be [Pyinstaller](http://www.pyinstaller.org) binaries available for M
 
 * Repo owner or admin
 * Other community or team contact
+
+
+![gpsHUD gif example](http://semper.space/gpsHUD/gauge_example.gif "GPS HUD gif")
