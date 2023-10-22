@@ -106,7 +106,7 @@ class MainWidget(QtGui.QMainWindow, Ui_WidgetWindow):
 		try:
 			self.loadImage('preview.png')
 		except Exception as e:
-			print 'Loading template due to error:', e
+			print('Loading template due to error:', e)
 			self.loadImage(self.template_path)
 
 	def export(self):
@@ -153,7 +153,7 @@ class MainWidget(QtGui.QMainWindow, Ui_WidgetWindow):
 			try:
 				self.animate.export(path, exportFormat, fps=self.doubleSpinBox_fps.value())
 			except Exception as e:
-				print e
+				print(e)
 				os.remove(path)
 			self.processBarActive = False
 			self.toolButton_export.setEnabled(True)
