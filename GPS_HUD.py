@@ -1,6 +1,6 @@
 import sys
 import os
-from PyQt5 import QtWidgets, QtGui, QtCore, uic
+from PyQt6 import QtWidgets, QtGui, QtCore, uic
 import animateHUD
 
 __version__ = 'v1.1.0'
@@ -67,7 +67,7 @@ class MainWidget(QtWidgets.QMainWindow, Ui_WidgetWindow):
                 self.scene.addItem(QtWidgets.QGraphicsPixmapItem(self.pixmap))
 
                 ## Add frame
-                self.scene.addRect(0,0,self.pixmap.width(),self.pixmap.height(), pen=QtGui.QPen(QtCore.Qt.black))
+                self.scene.addRect(0,0,self.pixmap.width(),self.pixmap.height(), pen=QtGui.QPen())
                 ## connect scenes to GUI elements
                 self.graphicsView.setScene(self.scene)
                 ## reset scaling (needed for reinitialization)
@@ -177,7 +177,7 @@ class QGraphicsSceneCustom(QtWidgets.QGraphicsScene):
                 self.mainWidget = mainWidget
                 ## parent is QGraphicsView
                 QtWidgets.QGraphicsScene.__init__(self,parent)
-                self.parent().setDragMode(QtWidgets.QGraphicsView.NoDrag)
+                self.parent().setDragMode(QtWidgets.QGraphicsView.DragMode.NoDrag)
                 ## Initialize variables
                 self.lastScreenPos = QtCore.QPoint(0, 0)
                 self.lastScenePos = 0
@@ -202,7 +202,7 @@ class QGraphicsSceneCustom(QtWidgets.QGraphicsScene):
                 modifiers = QtWidgets.QApplication.keyboardModifiers()
                 if event.button() == QtCore.Qt.LeftButton and modifiers != QtCore.Qt.ControlModifier:
                         # print 'Mouse left button'
-                        self.parent().setDragMode(QtWidgets.QGraphicsView.ScrollHandDrag)
+                        self.parent().setDragMode(QtWidgets.QGraphicsView.DragMode.ScrollHandDrag)
                 # elif event.button() == QtCore.Qt.LeftButton and modifiers == QtCore.Qt.ControlModifier:
                         # print 'Mouse left button + ctrl'
                 elif event.button() == QtCore.Qt.RightButton:
@@ -214,7 +214,7 @@ class QGraphicsSceneCustom(QtWidgets.QGraphicsScene):
 
         def mouseReleaseEvent(self, event):
                 super(QGraphicsSceneCustom, self).mouseReleaseEvent(event)
-                self.parent().setDragMode(QtWidgets.QGraphicsView.NoDrag)
+                self.parent().setDragMode(QtWidgets.QGraphicsView.DragMode.NoDrag)
 
 
 if __name__ == "__main__":
@@ -222,4 +222,4 @@ if __name__ == "__main__":
         window = MainWidget()
         window.show()
         window.raise_()
-        sys.exit(app.exec_())
+        sys.exit(app.exec())
