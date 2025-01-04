@@ -41,24 +41,24 @@ def get_interpolated_coordinate_list(path):
 					((bLon-aLon)/(bTim-aTim))*(second+1)+aLon,
 					((bEle-aEle)/(bTim-aTim))*(second+1)+aEle])
 			if debug:
-				print aTim, bTim, bTim-aTim
-				print point, ':', aLat, aLon, aEle
+				print(aTim, bTim, bTim-aTim)
+				print(point, ':', aLat, aLon, aEle)
 				for second in range(int(bTim-aTim-1)):
-					print(
-						'>>>>>', (((bLat-aLat)/(bTim-aTim))*(second+1))+aLat, ((bLon-aLon)/(bTim-aTim))*(second+1)+aLon, ((bEle-aEle)/(bTim-aTim))*(second+1)+aEle)
+					print((
+						'>>>>>', (((bLat-aLat)/(bTim-aTim))*(second+1))+aLat, ((bLon-aLon)/(bTim-aTim))*(second+1)+aLon, ((bEle-aEle)/(bTim-aTim))*(second+1)+aEle))
 					interpolated += 1
-				print point+1, ':', bLat, bLon, bEle
-				print '='*10
+				print(point+1, ':', bLat, bLon, bEle)
+				print('='*10)
 
 	if debug:
-		print 'Duration from file: ', gpx.get_duration()
-		print 'Duration calculated:', time.mktime(
-			gpx.tracks[0].segments[0].points[-1].time.timetuple())-time.mktime(gpx.tracks[0].segments[0].points[0].time.timetuple())
-		print 'Data points:        ', len(gpx.tracks[0].segments[0].points)
-		print 'Interpolated Points:', interpolated
-		print 'New Data Points:    ', len(gpx.tracks[0].segments[0].points) + interpolated
-		print '#'*50
-		print interpolated_list
+		print('Duration from file: ', gpx.get_duration())
+		print('Duration calculated:', time.mktime(
+			gpx.tracks[0].segments[0].points[-1].time.timetuple())-time.mktime(gpx.tracks[0].segments[0].points[0].time.timetuple()))
+		print('Data points:        ', len(gpx.tracks[0].segments[0].points))
+		print('Interpolated Points:', interpolated)
+		print('New Data Points:    ', len(gpx.tracks[0].segments[0].points) + interpolated)
+		print('#'*50)
+		print(interpolated_list)
 
 	return interpolated_list
 
@@ -107,5 +107,5 @@ if __name__ == '__main__':
 	i = 0
 	for speed in get_interpolated_speed_list(path):
 		# if i in [630,631,632]:
-		print i, speed*3.6
+		print(i, speed*3.6)
 		i += 1
