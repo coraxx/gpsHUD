@@ -4,9 +4,9 @@
 
 ![gpsHUD screenshot](http://semper.space/gpsHUD/Screenshot_01.png "GPS HUD")
 
-The Toolbox is written in Python 2.7 and comes with a PyQt4 GUI. Further dependencies as of now are:
+The Toolbox is written in Python 3 and comes with a PyQt6 GUI. Further dependencies as of now are:
 
-* PyQt4 [^1]
+* PyQt6 [^1]
 + numpy [^2]
 + scipy [^2]
 + gizeh [^2] which needs cairo [^1]
@@ -40,7 +40,7 @@ Copyright (C) 2016  Jan Arnold
 
 ### Version ###
 
-v1.0.0b - initial beta release
+v2.0.0b - initial beta release
 
 ### Binaries ###
 
